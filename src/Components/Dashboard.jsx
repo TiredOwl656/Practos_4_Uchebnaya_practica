@@ -1,3 +1,11 @@
+/**
+ * Личный кабинет пользователя/панель управления администратора
+ * Предоставляет разные интерфейсы для обычных пользователей и администраторов
+ * 
+ * @component
+ * @returns {JSX.Element} Личный кабинет
+ */
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
@@ -53,6 +61,13 @@ const Dashboard = () => {
     }
   }, [user, isAdmin]);
 
+    /**
+     * Загружает данные профиля для обычного пользователя
+     * Включает заказы, отзывы и информацию профиля
+     * 
+     * @returns {Promise<void>}
+     */
+
   const loadUserData = async () => {
     try {
       const ordersRes = await axios.get(`${API}/orders/${user.id}`);
@@ -71,6 +86,13 @@ const Dashboard = () => {
       toast.error('Ошибка загрузки данных');
     }
   };
+
+    /**
+     * Загружает данные для администраторской панели
+     * Включает услуги, категории, пользователей и отзывы
+     * 
+     * @returns {Promise<void>}
+     */
 
   const loadAdminData = async () => {
     try {
@@ -92,6 +114,13 @@ const Dashboard = () => {
   };
 
   // === УПРАВЛЕНИЕ УСЛУГАМИ (АДМИН) ===
+
+    /**
+     * Создает или обновляет услугу (для администратора)
+     * 
+     * @returns {Promise<void>}
+     */
+
   const handleServiceSubmit = async () => {
     if (!serviceForm.name || !serviceForm.price || !serviceForm.category_id) {
       toast.error('Заполните обязательные поля');
@@ -136,6 +165,13 @@ const Dashboard = () => {
   };
 
   // === УПРАВЛЕНИЕ КАТЕГОРИЯМИ (АДМИН) ===
+
+    /**
+     * Создает или обновляет категорию (для администратора)
+     * 
+     * @returns {Promise<void>}
+     */
+
   const handleCategorySubmit = async () => {
     if (!categoryForm.category_name) {
       toast.error('Введите название категории');

@@ -1,3 +1,10 @@
+/**
+ * Контекст для управления корзиной покупок
+ * Обеспечивает глобальный доступ к состоянию корзины и методам работы с ней
+ * 
+ * @context
+ */
+
 import { createContext, useContext, useReducer, useEffect, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -46,6 +53,14 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   const [user, setUser] = useState(null);
 
+  /**
+   * Добавляет услугу в корзину пользователя
+   * 
+   * @param {Object} service - Объект услуги для добавления
+   * @param {number} userId - ID пользователя
+   * @returns {Promise<void>}
+   */
+
   const addToCart = async (service, userId) => {
     if (!userId) return;
     
@@ -80,6 +95,13 @@ export const CartProvider = ({ children }) => {
     return state.items.reduce((sum, item) => sum + item.quantity, 0);
   };
 
+  /**
+   * Удаляет услугу из корзины
+   * 
+   * @param {number} serviceId - ID услуги для удаления
+   * @returns {Promise<void>}
+   */
+
   const removeFromCart = async (serviceId) => {
     if (!user) return;
     try {
@@ -92,6 +114,12 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  /**
+   * Очищает всю корзину пользователя
+   * 
+   * @returns {Promise<void>}
+   */
+
   const clearCart = async () => {
     if (!user) return;
     try {
@@ -103,6 +131,12 @@ export const CartProvider = ({ children }) => {
       console.error('Clear cart error:', err);
     }
   };
+
+  /**
+   * Вычисляет общую стоимость товаров в корзине
+   * 
+   * @returns {number} Общая стоимость
+   */
 
   const getTotalPrice = () => {
     return state.items.reduce((sum, i) => sum + i.price * i.quantity, 0);

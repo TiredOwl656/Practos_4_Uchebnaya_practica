@@ -39,6 +39,20 @@ const adminMiddleware = async (req, res, next) => {
 };
 
 // === РЕГИСТРАЦИЯ ===
+
+/**
+ * Регистрация нового пользователя
+ * POST /api/auth/register
+ * 
+ * @param {Object} req - Объект запроса
+ * @param {string} req.body.full_name - Полное имя пользователя
+ * @param {string} req.body.email - Email пользователя
+ * @param {string} req.body.password - Пароль пользователя
+ * @param {string} [req.body.phone] - Телефон пользователя
+ * @param {string} [req.body.default_address] - Адрес по умолчанию
+ * @param {Object} res - Объект ответа
+ */
+
 app.post('/api/auth/register', async (req, res) => {
   const { full_name, email, password, phone, default_address } = req.body;
 
@@ -84,6 +98,17 @@ app.post('/api/auth/register', async (req, res) => {
 });
 
 // === ЛОГИН ===
+
+/**
+ * Аутентификация пользователя
+ * POST /api/auth/login
+ * 
+ * @param {Object} req - Объект запроса
+ * @param {string} req.body.email - Email пользователя
+ * @param {string} req.body.password - Пароль пользователя
+ * @param {Object} res - Объект ответа
+ */
+
 app.post('/api/auth/login', async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) return res.status(400).json({ error: 'Заполните поля' });
@@ -139,6 +164,16 @@ app.get('/api/auth/me', async (req, res) => {
 });
 
 // === УСЛУГИ ===
+
+/**
+ * Получение списка услуг с возможностью фильтрации по категории
+ * GET /api/services
+ * 
+ * @param {Object} req - Объект запроса
+ * @param {number} [req.query.category_id] - ID категории для фильтрации
+ * @param {Object} res - Объект ответа
+ */
+
 app.get('/api/services', async (req, res) => {
   const { category_id } = req.query;
   try {
@@ -295,6 +330,17 @@ app.get('/api/cart/:userId', async (req, res) => {
   }
 });
 
+/**
+ * Добавление услуги в корзину пользователя
+ * POST /api/cart/add
+ * 
+ * @param {Object} req - Объект запроса
+ * @param {number} req.body.userId - ID пользователя
+ * @param {number} req.body.service_id - ID услуги
+ * @param {number} [req.body.quantity=1] - Количество
+ * @param {Object} res - Объект ответа
+ */
+
 app.post('/api/cart/add', async (req, res) => {
   const { userId, service_id, quantity = 1 } = req.body;
 
@@ -444,6 +490,19 @@ app.delete('/api/cart/clear', async (req, res) => {
 });
 
 // === ЗАКАЗЫ ===
+
+/**
+ * Создание нового заказа
+ * POST /api/orders/create
+ * 
+ * @param {Object} req - Объект запроса
+ * @param {number} req.body.userId - ID пользователя
+ * @param {Array} req.body.items - Массив товаров в заказе
+ * @param {string} req.body.delivery_address - Адрес доставки
+ * @param {string} req.body.delivery_date - Дата доставки
+ * @param {Object} res - Объект ответа
+ */
+
 app.post('/api/orders/create', async (req, res) => {
   const { userId, items, delivery_address, delivery_date } = req.body;
 

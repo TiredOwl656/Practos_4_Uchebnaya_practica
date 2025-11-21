@@ -1,3 +1,13 @@
+/**
+ * Боковая панель категорий для фильтрации услуг
+ * Позволяет выбирать категории для фильтрации списка услуг
+ * 
+ * @component
+ * @param {Object} props - Свойства компонента
+ * @param {Function} props.onFilter - Функция обратного вызова для фильтрации
+ * @returns {JSX.Element} Панель категорий
+ */
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CategoriesAside.css';

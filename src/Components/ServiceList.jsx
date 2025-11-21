@@ -1,3 +1,13 @@
+/**
+ * Компонент для отображения списка услуг с фильтрацией по категориям
+ * Загружает данные с сервера и отображает карточки услуг
+ * 
+ * @component
+ * @param {Object} props - Свойства компонента
+ * @param {number|null} props.selectedCategory - ID выбранной категории для фильтрации
+ * @returns {JSX.Element} Список услуг
+ */
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';

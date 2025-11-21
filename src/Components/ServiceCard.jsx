@@ -1,3 +1,14 @@
+/**
+ * Карточка отдельной услуги для отображения в списке
+ * Показывает информацию об услуге и предоставляет действия (добавление в корзину, просмотр отзывов)
+ * 
+ * @component
+ * @param {Object} props - Свойства компонента
+ * @param {Object} props.service - Объект услуги
+ * @param {Function} props.onAdd - Функция обратного вызова для добавления в корзину
+ * @returns {JSX.Element} Карточка услуги
+ */
+
 import { useState } from 'react';
 import { useCart } from '../contexts/CartContext';
 import './ServiceCard.css';
@@ -17,6 +28,13 @@ const ServiceCard = ({ service, onAdd }) => {
   const { user } = useCart();
   const [showReviews, setShowReviews] = useState(false);
   const isAdmin = user?.role_id === 2;
+
+    /**
+     * Обрабатывает добавление услуги в корзину
+     * Проверяет авторизацию и права доступа (админы не могут покупать)
+     * 
+     * @returns {void}
+     */
 
   const handleAddToCart = () => {
     if (!user) {

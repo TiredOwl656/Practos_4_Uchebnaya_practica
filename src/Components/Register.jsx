@@ -1,3 +1,11 @@
+/**
+ * Компонент формы регистрации нового пользователя
+ * Создает новую учетную запись в системе
+ * 
+ * @component
+ * @returns {JSX.Element} Форма регистрации
+ */
+
 import { useState } from 'react';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';

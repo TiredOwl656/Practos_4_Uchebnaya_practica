@@ -1,3 +1,11 @@
+/**
+ * Компонент формы входа в систему
+ * Обрабатывает аутентификацию пользователя
+ * 
+ * @component
+ * @returns {JSX.Element} Форма входа
+ */
+
 import { useState } from 'react';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';

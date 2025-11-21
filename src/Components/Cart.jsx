@@ -1,3 +1,11 @@
+/**
+ * Компонент корзины покупок
+ * Отображает выбранные услуги, форму оформления заказа и итоговую стоимость
+ * 
+ * @component
+ * @returns {JSX.Element} Страница корзины
+ */
+
 import { useCart } from '../contexts/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -13,6 +21,13 @@ const Cart = () => {
     delivery_address: user?.default_address || '',
     delivery_date: ''
   });
+
+    /**
+     * Обрабатывает оформление заказа
+     * Валидирует данные формы и отправляет запрос на сервер
+     * 
+     * @returns {Promise<void>}
+     */
 
   const handleCheckout = async () => {
     if (!user) {

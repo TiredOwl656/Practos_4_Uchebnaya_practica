@@ -1,3 +1,11 @@
+/**
+ * Компонент навигации приложения
+ * Отображает меню с учетом роли пользователя (обычный пользователь/администратор)
+ * 
+ * @component
+ * @returns {JSX.Element} Навигационная панель
+ */
+
 import { NavLink } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import "./Navigation.css";

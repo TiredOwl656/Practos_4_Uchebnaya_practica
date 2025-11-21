@@ -1,3 +1,11 @@
+/**
+ * Главный компонент приложения "Магазин Бесполезных Услуг"
+ * Организует маршрутизацию, провайдеры контекста и общую структуру
+ * 
+ * @component
+ * @returns {JSX.Element} Основной компонент приложения
+ */
+
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
 import { ToastContainer } from 'react-toastify';

@@ -1,3 +1,13 @@
+/**
+ * Компонент для работы с отзывами на услуги
+ * Показывает существующие отзывы и форму для добавления новых
+ * 
+ * @component
+ * @param {Object} props - Свойства компонента
+ * @param {number} props.serviceId - ID услуги для отзывов
+ * @returns {JSX.Element} Блок отзывов
+ */
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
@@ -30,6 +40,13 @@ const Reviews = ({ serviceId }) => {
       setLoading(false);
     }
   };
+
+    /**
+     * Отправляет новый отзыв на сервер
+     * 
+     * @param {Event} e - Событие формы
+     * @returns {Promise<void>}
+     */
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
