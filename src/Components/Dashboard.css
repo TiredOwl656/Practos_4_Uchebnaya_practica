@@ -1,0 +1,612 @@
+.dashboard {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+  background: #F7F7F7;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: none;
+  padding: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 3px solid #333333;
+  background: #FFFFFF;
+  box-shadow: 6px 6px 0 #333333;
+}
+
+.user-info h2 {
+  color: #333333;
+  font-size: 2rem;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.user-info p {
+  color: #4A6FA5;
+  margin: 5px 0 0;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+.back-btn {
+  background: #FF6B6B;
+  color: white;
+  border: 2px solid #333333;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 3px 3px 0 #333333;
+}
+
+.back-btn:hover {
+  background: #E55B5B;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #333333;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  padding: 10px;
+  background: #FFFFFF;
+  border: 2px solid #333333;
+  box-shadow: 4px 4px 0 #333333;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border: 2px solid #333333;
+  background: #F7F7F7;
+  color: #333333;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 2px 2px 0 #333333;
+}
+
+.tabs button.active {
+  background: #4A6FA5;
+  color: white;
+  border-color: #333333;
+  box-shadow: 3px 3px 0 #333333;
+}
+
+.tabs button:hover:not(.active) {
+  background: #FFD166;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #333333;
+}
+
+.admin-section h3 {
+  margin: 0 0 20px;
+  color: #333333;
+  font-size: 1.5rem;
+  border-bottom: 3px solid #FFD166;
+  padding-bottom: 10px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+.admin-section h4 {
+  margin: 0 0 15px;
+  color: #333333;
+  font-size: 1.2rem;
+  font-family: 'Georgia', serif;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 2px solid #333333;
+  box-shadow: 4px 4px 0 #333333;
+}
+
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  background: #FFFFFF;
+  color: #333333;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 2px 2px 0 #333333;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus,
+.form-grid select:focus {
+  outline: none;
+  border-color: #4A6FA5;
+  box-shadow: 2px 2px 0 #4A6FA5;
+}
+
+.form-grid textarea {
+  min-height: 80px;
+  resize: vertical;
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333333;
+  font-family: 'Georgia', serif;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  background: #FFFFFF;
+  color: #333333;
+  font-family: 'Georgia', serif;
+  box-shadow: 2px 2px 0 #333333;
+}
+
+.btn-primary {
+  background: #4A6FA5;
+  color: white;
+  border: 2px solid #333333;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 3px 3px 0 #333333;
+}
+
+.btn-primary:hover {
+  background: #3A5F95;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #333333;
+}
+
+.btn-secondary {
+  background: #666666;
+  color: white;
+  border: 2px solid #333333;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 3px 3px 0 #333333;
+}
+
+.btn-secondary:hover {
+  background: #555555;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #333333;
+}
+
+.btn-danger {
+  background: #FF6B6B;
+  color: white;
+  border: 2px solid #333333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-family: 'Georgia', serif;
+  box-shadow: 2px 2px 0 #333333;
+}
+
+.btn-danger:hover {
+  background: #E55B5B;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #333333;
+}
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 2px solid #333333;
+  box-shadow: 4px 4px 0 #333333;
+}
+
+.admin-item {
+  background: #F7F7F7;
+  padding: 20px;
+  border-radius: 4px;
+  border: 2px solid #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 0 #333333;
+}
+
+.admin-item:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #333333;
+  background: #FFFFFF;
+}
+
+.admin-item strong {
+  color: #333333;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Courier New', monospace;
+}
+
+.admin-item p {
+  margin: 4px 0 0;
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: 'Georgia', serif;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.item-actions button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+  box-shadow: 2px 2px 0 #333333;
+}
+
+.item-actions button:not(.btn-danger) {
+  background: #FFD166;
+  color: #333333;
+}
+
+.item-actions button:not(.btn-danger):hover {
+  background: #E5C155;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #333333;
+}
+
+.access-denied {
+  text-align: center;
+  padding: 60px 20px;
+  background: #FFFFFF;
+  border: 3px solid #333333;
+  box-shadow: 6px 6px 0 #333333;
+  margin: 20px;
+}
+
+.access-denied h2 {
+  color: #FF6B6B;
+  margin-bottom: 10px;
+  font-family: 'Courier New', monospace;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.profile-card {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 4px;
+  border: 3px solid #333333;
+  box-shadow: 6px 6px 0 #333333;
+}
+
+.profile-card h3 {
+  margin-top: 0;
+  color: #4A6FA5;
+  border-bottom: 2px solid #FFD166;
+  padding-bottom: 10px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+.discount-badge {
+  background: #4A6FA5;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 8px;
+  border: 1px solid #333333;
+}
+
+.error {
+  color: #FF6B6B;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  font-family: 'Georgia', serif;
+}
+
+.form-grid > div {
+  margin-bottom: 12px;
+}
+
+/* === СТИЛИ ДЛЯ ЗАКАЗОВ === */
+.orders-section {
+  margin-top: 20px;
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 40px 20px;
+  color: #333333;
+  background: #FFFFFF;
+  border: 3px solid #333333;
+  box-shadow: 6px 6px 0 #333333;
+}
+
+.empty-orders p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-family: 'Georgia', serif;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-card {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 4px;
+  border: 3px solid #333333;
+  box-shadow: 6px 6px 0 #333333;
+  transition: all 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 #333333;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.order-header h3 {
+  margin: 0;
+  color: #333333;
+  font-size: 1.2rem;
+  font-family: 'Courier New', monospace;
+}
+
+.order-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  border: 1px solid #333333;
+  font-family: 'Courier New', monospace;
+}
+
+.order-status.новый {
+  background: #4A6FA5;
+  color: white;
+}
+
+.order-status.в_процессе {
+  background: #FFD166;
+  color: #333333;
+}
+
+.order-status.выполнен {
+  background: #4A6FA5;
+  color: white;
+}
+
+.order-status.отменен {
+  background: #FF6B6B;
+  color: white;
+}
+
+.order-details p {
+  margin: 8px 0;
+  color: #333333;
+  font-family: 'Georgia', serif;
+}
+
+.order-details strong {
+  color: #4A6FA5;
+}
+
+.order-items {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #FFD166;
+}
+
+.order-items h4 {
+  margin: 0 0 10px;
+  color: #333333;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #D0D0D0;
+  font-family: 'Georgia', serif;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+/* === СТИЛИ ДЛЯ ОТЗЫВОВ === */
+.reviews-section {
+  margin-top: 20px;
+}
+
+.empty-reviews {
+  text-align: center;
+  padding: 40px 20px;
+  color: #333333;
+  background: #FFFFFF;
+  border: 3px solid #333333;
+  box-shadow: 6px 6px 0 #333333;
+}
+
+.empty-reviews p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-family: 'Georgia', serif;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-card {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 4px;
+  border: 2px solid #333333;
+  box-shadow: 4px 4px 0 #333333;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #333333;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-header h4 {
+  margin: 0;
+  color: #333333;
+  font-size: 1.1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.review-rating {
+  color: #FFD166;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 0 #333333;
+}
+
+.review-comment {
+  color: #333333;
+  line-height: 1.5;
+  margin: 10px 0 0;
+  font-family: 'Georgia', serif;
+}
+
+.review-date {
+  color: #666666;
+  font-size: 0.9rem;
+  margin: 8px 0 0;
+  font-family: 'Courier New', monospace;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .admin-item {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .item-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .order-card {
+    padding: 16px;
+  }
+}

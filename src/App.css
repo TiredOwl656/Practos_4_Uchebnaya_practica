@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  overflow-x: hidden;
+  background: #F7F7F7;
+  background-image: 
+    radial-gradient(#4A6FA5 0.5px, transparent 0.5px),
+    radial-gradient(#FF6B6B 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  color: #333333;
+  line-height: 1.6;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* === Переменные для ретро-научной палитры === */
+:root {
+  --card-bg: #FFFFFF;
+  --text: #333333;
+  --primary: #4A6FA5;
+  --secondary: #FF6B6B;
+  --accent: #FFD166;
+  --border: #D0D0D0;
+  --shadow: 0 4px 12px rgba(74, 111, 165, 0.15);
+  --radius: 8px;
+  --retro-border: 2px solid #333333;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: #F7F7F7;
+  color: #333333;
+  position: relative;
+}
+
+.app::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 79px, #FFD16620 79px, #FFD16620 81px, transparent 81px),
+    linear-gradient(#FF6B6B10 1px, transparent 1px);
+  background-size: 100% 1.5em, 100% 1.5em;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* === Layout === */
+.main-layout {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  flex: 1;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Контент — растягивается */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Aside — справа */
+.categories-aside {
+  min-width: 220px;
+  max-width: 240px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  padding-right: 8px;
+}
+
+/* === Заголовок главной === */
+.app-header {
+  text-align: center;
+  padding: 40px 20px;
+  width: 100%;
+  background: #FFFFFF;
+  border: var(--retro-border);
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.app-header::before {
+  content: "✦";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: #FF6B6B;
+  font-size: 1.5rem;
+}
+
+.app-header::after {
+  content: "✦";
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #FF6B6B;
+  font-size: 1.5rem;
+}
+
+.app-header h1 {
+  color: #333333;
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.app-header p {
+  color: #4A6FA5;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* === СЕТКА УСЛУГ (GRID) === */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  box-sizing: border-box;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .main-layout {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .categories-aside {
+    order: -1;
+    position: static;
+    top: auto;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px 20px;
+  }
+}
+
+/* === Скроллбар === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F7F7;
+  border-left: 1px solid #D0D0D0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4A6FA5;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B6B;
+}
+
+/* === Утилиты === */
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-family: 'Courier New', monospace;
+  border: var(--retro-border);
+  background: #FFFFFF;
+  margin: 20px;
+}
+
+/* === Анимации === */
+.app,
+.app * {
+  transition: all 0.3s ease;
+}
+
+/* Ретро-эффекты */
+.retro-card {
+  background: #FFFFFF;
+  border: var(--retro-border);
+  box-shadow: 6px 6px 0 #333333;
+  position: relative;
+}
+
+.retro-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid #FFD166;
+  pointer-events: none;
+}

@@ -1,0 +1,112 @@
+.categories-aside {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 6px 6px 0 #333333;
+  min-width: 220px;
+  max-width: 260px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 3px solid #333333;
+}
+
+.categories-aside h3 {
+  margin: 0 0 18px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #333333;
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #FFD166;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  gap: 10px;
+  border: 1px solid #D0D0D0;
+  background: #F7F7F7;
+}
+
+.category-item:hover {
+  background: #FFD166;
+  transform: translate(2px, 2px);
+  border-color: #333333;
+  box-shadow: 2px 2px 0 #333333;
+}
+
+.category-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4A6FA5;
+  cursor: pointer;
+  margin: 0;
+  border: 2px solid #333333;
+}
+
+.category-item span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333333;
+  flex: 1;
+  font-family: 'Georgia', serif;
+}
+
+/* Активная категория */
+.category-item input[type="checkbox"]:checked + span {
+  font-weight: 600;
+  color: #4A6FA5;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .categories-aside {
+    position: static;
+    top: auto;
+    order: -1;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    padding: 20px;
+  }
+
+  .category-item {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-aside h3 {
+    font-size: 1.2rem;
+  }
+
+  .category-item span {
+    font-size: 0.95rem;
+  }
+}
+
+/* Скроллбар для aside */
+.categories-aside::-webkit-scrollbar {
+  width: 6px;
+}
+
+.categories-aside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.categories-aside::-webkit-scrollbar-thumb {
+  background: #4A6FA5;
+  border-radius: 3px;
+}
